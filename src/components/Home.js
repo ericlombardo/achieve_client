@@ -7,7 +7,7 @@ import ActivityLogTracker from '../containers/ActivityLogTracker'
 const Home = () => {
   return (
     <Container>
-      <ActivityLogTracker />
+
     </Container>
   )
 }
