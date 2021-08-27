@@ -8,7 +8,7 @@ const Quote = () => {
   // useEffect invoked EVERY rendering unless passed empty array
   // empty array only invokes first time like componentDidMount
   useEffect(() => {       
-    console.log('bingo')
+    console.log('bingo')  // set up store and thunk for async fetch
   }, [])
   
   return(
