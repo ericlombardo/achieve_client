@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route} from 'react-router-dom'
 import Home from './components/Home'
 import GoalsNew from './components/GoalsNew'
 import ActivityLog from './components/ActivityLog'
-
+import NavBar from './components/NavBar'
 
 const App = () => {
   return (
@@ -11,6 +11,7 @@ const App = () => {
       
       {/* define what components to render based on route paths */}
       <>
+        <NavBar />
         <Route exact path="/">
           <Home />
         </Route>
