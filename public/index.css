@@ -17,6 +17,24 @@ h1, h2, h3, h4, h5, p {
 
 .center {
   margin: auto;
-  width: 50%;
+  text-align: center;
+}
+
+.border {
+  border: 3px solid white;
+}
+
+.banner {
+  width: 80%;
+  margin: auto;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  text-align: center;
+}
+
+.card {
+  width: 46%;
+  display: inline-block;
+  margin: 1%;
   text-align: center;
 }

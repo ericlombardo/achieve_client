@@ -21,7 +21,7 @@ const Quote = () => {
     return null // pass by
   } else { // if not loading
     return (  // return quote
-      <div id="quote">
+      <div id="quote" className="center border banner">
         <p>{quotes[ranIndex].quote}</p>
         <p>- {quotes[ranIndex].author}</p>
       </div> 
