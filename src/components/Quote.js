@@ -4,7 +4,7 @@ const Quote = () => {
   
   const [quotes, updateQuotes] = useState([])   // create quotes state and updateLoading to update
   const [loading, updateLoading] = useState(true) // handles async timing for render
-  
+
   useEffect(() => {   // must be own function to use a hook
     async function fetchQuotes() {
       const resp = await fetch('http://localhost:3000/quotes').then(resp => resp.json()) // wait until you have quotes
@@ -21,7 +21,7 @@ const Quote = () => {
     return null // pass by
   } else { // if not loading
     return (  // return quote
-      <div>
+      <div id="quote">
         <p>{quotes[ranIndex].quote}</p>
         <p>- {quotes[ranIndex].author}</p>
       </div> 

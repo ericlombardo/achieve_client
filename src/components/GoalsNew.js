@@ -1,7 +1,13 @@
 // displays goals/new route
+import NavBar from './NavBar'
 
-function GoalsNew() {
-  return <h2>New Goal Page</h2>
+const GoalsNew = () => {
+  return (
+    <div id="new-goal">
+      <NavBar />
+      <h2>New Goal Page</h2>  
+    </div>
+  ) 
 }
 
 export default GoalsNew

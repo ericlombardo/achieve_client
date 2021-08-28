@@ -1,11 +1,12 @@
 // Displays / route
-import React from "react"
-
 import Quote from './Quote'
+import NavBar from './NavBar'
+
 const Home = () => {
   return (
-    <div>
+    <div id="home">
       <Quote />
+      <NavBar />
     </div>
   )
 }
