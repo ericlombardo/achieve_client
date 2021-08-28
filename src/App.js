@@ -9,7 +9,7 @@ import ActivityLog from './components/ActivityLog'
 class App extends Component {
   render() {
     return (
-      <Router> {/* invokes router to handle different routes */}
+      <Router> {/* renders router component to handle different routes */}
         <div>
           <Route exact path="/">
             <Home />
