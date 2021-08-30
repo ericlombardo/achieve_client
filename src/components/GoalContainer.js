@@ -13,8 +13,7 @@ const GoalContainer = () => {
     dispatch(fetchGoals()) // calls dispatch with fetchGoals action
   }, [dispatch]) // renders whenever dispatch changes
   
-  const handleUpdate = (e) => {
-    debugger
+  const onToggle = (e) => {
     return dispatch(updateMilestones(e))
   }
   if (loading) { return 'Loading...' } 
@@ -24,7 +23,7 @@ const GoalContainer = () => {
       {goals.map(goal => { // map through all goals
         return ( // return div with GoalCard component for each
           <div id="goal-card" className="border card" key={goal.id}>
-            <GoalCard goal={goal} handleUpdate={handleUpdate}/> {/* pass in goal instance through props */}
+            <GoalCard goal={goal} onToggle={onToggle}/> {/* pass in goal instance through props */}
           </div> 
         )
       })}

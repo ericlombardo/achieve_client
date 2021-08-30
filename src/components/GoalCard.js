@@ -1,31 +1,28 @@
 import React from 'react'
-import { Checkbox } from 'semantic-ui-react'
+
 
 const GoalCard = (props) => {
   const {title, why, durationNumber, durationUnit, durationEnd, timeSpent, milestones} = props.goal
+
   return (
     <>
       <h3>I will {title} in {durationNumber} {durationUnit} {why}</h3>
       <h3>{milestones.filter(ms => ms.complete === true).length} / {milestones.length} completed</h3>
       <h4>Milestones</h4>
-      {/* make a form with onSubmit*/}
       <div id="milestones" className="goal-card">
-        <form onSubmit={e => props.handleUpdate(e)}>
-        {milestones.map((milestone) => {
+        {milestones.sort((a, b) => {return a.id - b.id}).map(milestone => {
           return (
             <div id="milestone" key={milestone.id}>
               <input 
               type="checkbox" 
               id={milestone.id}  
               value={milestone.complete}
-              defaultChecked={milestone.complete === true ? true : false}/>
+              defaultChecked={milestone.complete === true ? true : false}
+              onChange={(e) => props.onToggle(e)}/>
               <label htmlFor={milestone.id}>{milestone.content}</label><br></br>
             </div>
           )
         })}
-        <br/><br/>
-        <button type="submit">Update Milestones</button>
-        </form>
       </div>
       
       <p>{durationEnd}</p>
