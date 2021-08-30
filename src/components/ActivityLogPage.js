@@ -1,6 +1,6 @@
 // displays /activitylog route
 
-const ActivityLog = () => {
+const ActivityLogPage = () => {
   return (
     <div id="activity-log" className="border">
       <h2>Activity Log Page</h2>
@@ -8,4 +8,4 @@ const ActivityLog = () => {
   )
 }
 
-export default ActivityLog
+export default ActivityLogPage

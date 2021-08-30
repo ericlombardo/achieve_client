@@ -1,8 +1,8 @@
 import { BrowserRouter as Router, Route} from 'react-router-dom'
 
-import Home from './components/Home'
-import GoalsNew from './components/GoalsNew'
-import ActivityLog from './components/ActivityLog'
+import HomePage from './components/HomePage'
+import NewGoalPage from './components/NewGoalPage'
+import ActivityLogPage from './components/ActivityLogPage'
 import NavBar from './components/NavBar'
 
 const App = () => {
@@ -13,15 +13,15 @@ const App = () => {
       <>
         <NavBar />
         <Route exact path="/">
-          <Home />
+          <HomePage />
         </Route>
 
         <Route exact path="/goals/new">
-          <GoalsNew />
+          <NewGoalPage />
         </Route>
 
         <Route exact path="/activitylog"> 
-          <ActivityLog />
+          <ActivityLogPage />
         </Route>
       </>
     </Router>

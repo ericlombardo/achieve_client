@@ -3,7 +3,7 @@ import Quote from './Quote'
 import GoalContainer from './GoalContainer'
 import ActivityTracker from './ActivityTracker'
 
-const Home = () => {
+const HomePage = () => {
   return (
     <div id="home">
       <Quote />
@@ -13,4 +13,4 @@ const Home = () => {
   )
 }
 
-export default Home
+export default HomePage

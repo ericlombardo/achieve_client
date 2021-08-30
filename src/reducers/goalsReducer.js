@@ -15,6 +15,19 @@ const goalsReducer = (  // this is where you update and return new state
         goals: action.payload, // add new goal to previous goals
         loading: false // alert we are done loading
       }
+
+    case 'LOADING_MILESTONE' :
+      return {
+        ...state,
+        goals: [...state.goals],
+        loading: true
+      }
+
+    case 'UPDATE_MILESTONE' :
+      debugger
+      return {
+        ...state
+      }
     default : 
       return state
   }

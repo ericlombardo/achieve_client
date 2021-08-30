@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { fetchGoals } from '../actions/goalActions'
+import { fetchGoals, updateMilestones } from '../actions/goalActions'
 import GoalCard from './GoalCard'
 
 const GoalContainer = () => {
@@ -13,6 +13,9 @@ const GoalContainer = () => {
     dispatch(fetchGoals()) // calls dispatch with fetchGoals action
   }, [dispatch]) // renders whenever dispatch changes
   
+  const onToggle = (e) => {
+    return dispatch(updateMilestones(e))
+  }
   if (loading) { return null } 
   
   return ( 
@@ -20,7 +23,7 @@ const GoalContainer = () => {
       {goals.map(goal => { // map through all goals
         return ( // return div with GoalCard component for each
           <div id="goal-card" className="border card" key={goal.id}>
-            <GoalCard goal={goal} /> {/* pass in goal instance through props */}
+            <GoalCard goal={goal} toggle={onToggle}/> {/* pass in goal instance through props */}
           </div> 
         )
       })}
