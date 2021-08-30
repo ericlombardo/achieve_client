@@ -15,9 +15,6 @@ export const fetchGoals = () => {
 
 export const updateMilestones = (e) => {
   return (dispatch) => {
-    dispatch({
-      type: 'LOADING_MILESTONE'
-    })
     fetch(`http://localhost:3000/milestones/${e.target.id}`, {
       method: 'PATCH',
       headers: {

@@ -24,9 +24,14 @@ const goalsReducer = (  // this is where you update and return new state
       }
 
     case 'UPDATE_MILESTONE' :
-      debugger
       return {
-        ...state
+        ...state,
+        // ,
+        //   ...state.goals,
+        //     ...state.goals.slice(0, action.goalIndex - 1),
+        //       ...state.goals[goalIndex],
+        //     ...state.goals.slice(action.goalIndex + 1),
+        loading: false
       }
     default : 
       return state
