@@ -20,7 +20,6 @@ const GoalContainer = () => {
         ms.complete = !ms.complete
       }
     })
-    // goal.milestones.forEach(ms => console.log(ms.complete))
     return dispatch(updateGoal(goal))
 }
 
@@ -31,7 +30,7 @@ const GoalContainer = () => {
     <div id="goals">
       {goals.map(goal => { // map through all goals
         return ( // return div with GoalCard component for each
-          <div id="goal-card" className="border card" key={goal.id}>
+          <div id="goal-card" className="bg-gray-200 border-2 border-black m-4" key={goal.id}>
             <GoalCard goal={goal} handleSubmit={handleSubmit}/> {/* pass in goal instance through props */}
           </div> 
         )
