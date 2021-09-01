@@ -5,7 +5,7 @@ import ActivityTracker from './ActivityTracker'
 
 const HomePage = () => {
   return (
-    <div id="home">
+    <div id="home" className="bg-black">
       {/* <Quote /> */}
       {/* <ActivityTracker /> */}
       <GoalContainer />

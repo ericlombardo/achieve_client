@@ -4,7 +4,7 @@ const NewGoalForm = ({handleStart, handleQuit}) => {
   
   return (
     <div >
-      {/* <form id="new-goal-form">
+      <form id="new-goal-form">
 
         <div id="form-title">
           <h2>You are more likely to achive your goals</h2>
@@ -15,9 +15,9 @@ const NewGoalForm = ({handleStart, handleQuit}) => {
           <p>A = Attainable</p>
           <p>R = Realistic</p>
           <p>T = Time-Based</p><br/>
-        </div> */}
+        </div>
 
-        {/* <div id="start-form">
+        <div id="start-form">
           <h3>Let's Start Simple. What are you looking to do?</h3>
             <div id="set-goal">
               <h3>
@@ -35,8 +35,8 @@ const NewGoalForm = ({handleStart, handleQuit}) => {
           <button >Start Something</button>
           <button >Quite Something</button>
 
-        </div> */}
-{/* 
+        </div>
+
         <div id="set-milestones">
 
         </div>
@@ -45,7 +45,7 @@ const NewGoalForm = ({handleStart, handleQuit}) => {
           <button type="submit">Start Tracking Goal</button>
         </div>
 
-      </form> */}
+      </form>
     </div>
   )
 }
