@@ -13,14 +13,14 @@ const GoalContainer = () => {
     dispatch(fetchGoals()) // calls dispatch with fetchGoals action
   }, [dispatch]) // renders whenever dispatch changes
   
-  const handleSubmit = (e, ids, goal) => {
-    e.preventDefault()
+  const handleSubmit = (e, ids, goal) => { // goes through each milestone and
+    e.preventDefault()                     // switches complete if needed
     goal.milestones.forEach(ms => {
       if (ids.includes(ms.id.toString())) {
         ms.complete = !ms.complete
       }
     })
-    return dispatch(updateGoal(goal))
+    return dispatch(updateGoal(goal)) // sends disptach with action
 }
 
   if (loading) { return 'Loading...' } 
@@ -28,12 +28,8 @@ const GoalContainer = () => {
 
   return ( 
     <div id="goals">
-      {goals.map(goal => { // map through all goals
-        return ( // return div with GoalCard component for each
-          <div id="goal-card" className="bg-gray-200 border-2 border-black m-4" key={goal.id}>
-            <GoalCard goal={goal} handleSubmit={handleSubmit}/> {/* pass in goal instance through props */}
-          </div> 
-        )
+      {goals.map(goal => { // map through all goals and render GoalCard for eac
+        return  <GoalCard goal={goal} handleSubmit={handleSubmit}/> 
       })}
     </div>
   )

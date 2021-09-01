@@ -1,15 +1,10 @@
 import React, { useState } from 'react'
-
-// create class that to hold all true milestone ids
-
+import Button from './display/Button'
 const GoalCard = (props) => {
   const {id, title, why, durationNumber, durationUnit, durationEnd, timeSpent, milestones} = props.goal
-
   const [msIds, collectmsIds ] = useState([])
   
   const checkboxLogic = (e) => {
-    // if id is in msIds already kick out if not add
-    // go through each milestone and if id matches switch complete
     if (msIds.includes(parseInt(e.target.id))) {
       collectmsIds(msIds.filter(id => id !== e.target.id))
     } else {
@@ -18,7 +13,7 @@ const GoalCard = (props) => {
   }
 
   return (
-    <>
+    <div id="goal-card" className="bg-gray-200 border-2 border-black m-4" key={props.goal.id}>
       <h3 className="tx-color-red">I will {title} in {durationNumber} {durationUnit} {why}</h3>
       <h3>{milestones.filter(ms => ms.complete === true).length} / {milestones.length} completed</h3>
       <h4>Milestones</h4>
@@ -38,15 +33,14 @@ const GoalCard = (props) => {
           )
         })}
         <br /><br />
-        <button type="submit">Update Milestones</button>
+        <Button text="Update Milestones" />
         </form>
       </div>
       
       <p>{durationEnd}</p>
 
       <p>You have spent {Math.floor(timeSpent / 60)} hours and {timeSpent % 60} minutes on this goal</p>
-      
-    </>
+    </div> 
   )
 }
 
