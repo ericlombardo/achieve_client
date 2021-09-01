@@ -1,3 +1,5 @@
+
+
 export const fetchGoals = () => {
   return (dispatch) => {
     dispatch({
@@ -13,24 +15,23 @@ export const fetchGoals = () => {
 }
 
 
-export const updateMilestones = (e) => {
+export const updateGoal = (newGoal) => {
+ 
   return (dispatch) => {
-    fetch(`http://localhost:3000/milestones/${e.target.id}`, {
-      method: 'PATCH',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({complete: e.target.value === "true" ? false : true})
+      fetch(`http://localhost:3000/goals/${newGoal.id}`, { // form id is set to goal
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({goal: newGoal})})
+      .then(resp => resp.json())
+      .then(goal => {
+        dispatch({
+        type: 'UPDATE_GOAL',
+        goal: goal
+      })
+      alert('Updated Milestones')
     })
-    .then(resp => resp.json())
-    .then(milestone => dispatch({
-      type: 'UPDATE_MILESTONE',
-      payload: {
-        goalIndex: milestone.goal_id - 1,
-        milestoneIndex: milestone.id -1,
-        complete: milestone.complete
-      }
-    }))
   }
 }
 

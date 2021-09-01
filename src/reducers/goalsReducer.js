@@ -16,22 +16,17 @@ const goalsReducer = (  // this is where you update and return new state
         loading: false // alert we are done loading
       }
 
-    case 'LOADING_MILESTONE' :
+    case 'UPDATE_GOAL' :
+      const index = state.goals.findIndex(g => {
+        return g.id === action.goal.id
+      })
       return {
         ...state,
-        goals: [...state.goals],
-        loading: true
-      }
-
-    case 'UPDATE_MILESTONE' :
-      return {
-        ...state,
-        // ,
-        //   ...state.goals,
-        //     ...state.goals.slice(0, action.goalIndex - 1),
-        //       ...state.goals[goalIndex],
-        //     ...state.goals.slice(action.goalIndex + 1),
-        loading: false
+          goals: [
+            ...state.goals.slice(0, index),
+            action.goal,
+            ...state.goals.slice(index + 1)
+          ] 
       }
     default : 
       return state

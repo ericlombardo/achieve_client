@@ -6,8 +6,8 @@ import ActivityTracker from './ActivityTracker'
 const HomePage = () => {
   return (
     <div id="home">
-      <Quote />
-      <ActivityTracker />
+      {/* <Quote /> */}
+      {/* <ActivityTracker /> */}
       <GoalContainer />
     </div>
   )

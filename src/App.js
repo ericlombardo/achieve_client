@@ -10,20 +10,18 @@ const App = () => {
     <Router> {/* renders router component to handle different routes */}
       
       {/* define what components to render based on route paths */}
-      <>
-        <NavBar />
-        <Route exact path="/">
-          <HomePage />
-        </Route>
+      <NavBar />
+      <Route exact path="/">
+        <HomePage />
+      </Route>
 
-        <Route exact path="/goals/new">
-          <NewGoalPage />
-        </Route>
+      <Route exact path="/goals/new">
+        <NewGoalPage />
+      </Route>
 
-        <Route exact path="/activitylog"> 
-          <ActivityLogPage />
-        </Route>
-      </>
+      <Route exact path="/activitylog"> 
+        <ActivityLogPage />
+      </Route>
     </Router>
   )
 }

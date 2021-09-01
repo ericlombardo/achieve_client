@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { fetchGoals, updateMilestones } from '../actions/goalActions'
+import { fetchGoals, updateGoal } from '../actions/goalActions'
 import GoalCard from './GoalCard'
 
 const GoalContainer = () => {
@@ -13,17 +13,26 @@ const GoalContainer = () => {
     dispatch(fetchGoals()) // calls dispatch with fetchGoals action
   }, [dispatch]) // renders whenever dispatch changes
   
-  const onToggle = (e) => {
-    return dispatch(updateMilestones(e))
-  }
+  const handleSubmit = (e, ids, goal) => {
+    e.preventDefault()
+    goal.milestones.forEach(ms => {
+      if (ids.includes(ms.id.toString())) {
+        ms.complete = !ms.complete
+      }
+    })
+    // goal.milestones.forEach(ms => console.log(ms.complete))
+    return dispatch(updateGoal(goal))
+}
+
   if (loading) { return 'Loading...' } 
   
+
   return ( 
     <div id="goals">
       {goals.map(goal => { // map through all goals
         return ( // return div with GoalCard component for each
           <div id="goal-card" className="border card" key={goal.id}>
-            <GoalCard goal={goal} onToggle={onToggle}/> {/* pass in goal instance through props */}
+            <GoalCard goal={goal} handleSubmit={handleSubmit}/> {/* pass in goal instance through props */}
           </div> 
         )
       })}
