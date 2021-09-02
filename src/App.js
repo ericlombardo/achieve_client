@@ -7,22 +7,24 @@ import NavBar from './components/NavBar'
 
 const App = () => {
   return (
-    <Router> {/* renders router component to handle different routes */}
-      
-      {/* define what components to render based on route paths */}
-      <NavBar />
-      <Route exact path="/">
-        <HomePage />
-      </Route>
+    <div className="container">
+      <Router> {/* renders router component to handle different routes */}
+          {/* define what components to render based on route paths */}
+          <Route exact path="/">
+            <HomePage />
+          </Route>
 
-      <Route exact path="/goals/new">
-        <NewGoalPage />
-      </Route>
+          <Route exact path="/goals/new">
+            <NavBar />
+            <NewGoalPage />
+          </Route>
 
-      <Route exact path="/activitylog"> 
-        <ActivityLogPage />
-      </Route>
-    </Router>
+          <Route exact path="/activitylog"> 
+            <NavBar />
+            <ActivityLogPage />
+          </Route>
+      </Router>
+    </div>
   )
 }
 

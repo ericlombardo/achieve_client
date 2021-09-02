@@ -1,4 +1,46 @@
 /* ./src/index.css */
+
+.bg-img {
+  background-image: url('./images/bg-hiker.jpg');
+}
+
+.home-banner {
+  position: absolute;
+  top: 30%;
+  left: 20%;
+}
+
+/* colors */
+.bg-orange {
+  background-color: #d75c23;
+}
+.bg-orange-light {
+  background-color: #df7849;
+}
+.bg-yellow {
+  background-color: #ccb627;
+}
+.bg-green {
+  background-color: #a4ba41;
+}
+.bg-brown {
+  background-color: #4b3217;
+}
+.bg-blue {
+  background-color: #6aacf7;
+}
+.bg-teal {
+  background-color: #bff7e1;
+}
+
+.f-title {
+  font-family: 'Bebas Neue', cursive;
+}
+
+.f-body {
+  font-family: 'Montserrat', sans-serif;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

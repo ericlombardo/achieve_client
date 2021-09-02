@@ -4,7 +4,7 @@ import NewGoalForm from './NewGoalForm'
 const NewGoalPage = () => {
 
   return (
-    <div id="new-goal">
+    <div id="new-goal" >
       <NewGoalForm />
     </div>
   ) 
