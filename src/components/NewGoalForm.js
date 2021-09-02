@@ -10,11 +10,7 @@ const NewGoalForm = ({handleStart, handleQuit}) => {
           <h2>You are more likely to achive your goals</h2>
           <h2>if you are S.M.A.R.T about it!!</h2>
 
-          <p>S = Specific</p>
-          <p>M = Measureable</p>
-          <p>A = Attainable</p>
-          <p>R = Realistic</p>
-          <p>T = Time-Based</p><br/>
+          <p>S = Specific M = Measureable A = Attainable R = Realistic T = Time-Based</p><br/>
         </div>
 
         <div id="start-form">

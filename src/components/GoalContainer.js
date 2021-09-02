@@ -25,7 +25,6 @@ const GoalContainer = () => {
 
   if (loading) { return 'Loading...' } 
   
-
   return ( 
     <div id="goals">
       {goals.map(goal => { // map through all goals and render GoalCard for eac

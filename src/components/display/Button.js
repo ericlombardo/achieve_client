@@ -1,8 +1,8 @@
 
-const Button = ({text}) => {
+const Button = ({text, color, hover, width}) => {
   return (
     <div 
-      className="bg-elgray-500 hover:bg-yellow-200 text-white font-bold py-2 px-4 rounded">
+      className={`bg-${color} hover:bg-${hover} text-white font-bold py-2 px-4 rounded w-${width} text-center`}>
       <button type="submit"
       >{text}</button>
     </div>
