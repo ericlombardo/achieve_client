@@ -1,55 +1,61 @@
+import Button from './display/Button'
+import StartGoal from './StartGoal'
+import QuitGoal from './QuitGoal'
 
+import { useState } from 'react'
 
 const NewGoalForm = ({handleStart, handleQuit}) => {
   
+  const [show, setShow] = useState('start')
+
   return (
-    <div >
-      <form id="new-goal-form">
-
-        <div id="form-title">
-          <h2>You are more likely to achive your goals</h2>
-          <h2>if you are S.M.A.R.T about it!!</h2>
-
-          <p>S = Specific M = Measureable A = Attainable R = Realistic T = Time-Based</p><br/>
+    <div>
+      {show === "start" ? (
+        <>
+        <div>
+          <Button text="Start Something" handleClick={() => setShow('startGoal')} classes="ransform transition-all hover:scale-125 bg-orange text-white font-bold p-2 rounded-2xl w-48 h-auto text-center shadow-2xl f-body" />
         </div>
-
-        <div id="start-form">
-          <h3>Let's Start Simple. What are you looking to do?</h3>
-            <div id="set-goal">
-              <h3>
-                In 
-                
-                <input placeholder="number" />
-                
-                <select name="duration">
-                  <option disabled selected> Duration</option>
-                  <option value="day">Day</option>
-                  <option value="week">Week</option>
-                  <option value="month">Month</option>
-                  <option value="year">Year</option>
-                </select>
-                
-                I will have quit
-
-                <input placeholder="verb" />
-              </h3>
-            </div>
-          <button >Start Something</button>
-          <button >Quite Something</button>
-
+        <div>
+          <Button text="Quit Something" handleClick={() => setShow('quitGoal')}classes="ransform transition-all hover:scale-125 bg-orange text-white font-bold p-2 rounded-2xl w-48 h-auto text-center shadow-2xl f-body" />
         </div>
-
-        <div id="set-milestones">
-
-        </div>
-
-        <div id="submit">
-          <button type="submit">Start Tracking Goal</button>
-        </div>
-
-      </form>
+        </>) : show === "startGoal" ? (
+            < StartGoal />
+        ) : show === "quitGoal" ? (
+          < QuitGoal />
+        ) : null
+      }
+      
+  
     </div>
   )
-}
+}  
+      
+
+      
+{/* 
+      <div className="relative grid-rows-2">
+        <div className="pl-20 absolute rotate-20 trap bg-green rounded-xl shadow-2xl ">
+        </div>
+        <div className="pl-20absolute trap bg-orange rounded-xl shadow-2xl ">
+          <h1 className="p-2">By:</h1>
+          <input type="date" />
+        </div>
+      </div>
+
+
+      <div className="relative flex">
+        <div className="absolute rotate-20 trap bg-green rounded-xl shadow-2xl ">
+        </div>
+        <div className="absolute trap bg-orange rounded-xl shadow-2xl ">
+          <h1>I will have</h1>
+          <input type="text" placeholder="verb" />
+          <input type="text" placeholder="number" />
+          <input type="text" placeholder="unit" />
+
+        </div>
+      </div> */}
+    // </div>
+//   )
+// }
 
 export default NewGoalForm

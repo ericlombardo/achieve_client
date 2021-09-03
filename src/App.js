@@ -11,12 +11,16 @@ const App = () => {
       <Router> {/* renders router component to handle different routes */}
           {/* define what components to render based on route paths */}
           <Route exact path="/">
-            <HomePage />
+            <div id="home" className="bg-img bg-cover bg-center bg-no-repeat w-screen min-h-screen">
+              <HomePage />
+            </div>
           </Route>
 
           <Route exact path="/goals/new">
-            <NavBar />
-            <NewGoalPage />
+            <div id="home" className="bg-img bg-cover bg-center bg-no-repeat w-screen min-h-screen">
+              <NavBar />
+              <NewGoalPage />
+            </div>
           </Route>
 
           <Route exact path="/activitylog"> 

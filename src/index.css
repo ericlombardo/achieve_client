@@ -4,6 +4,10 @@
   background-image: url('./images/bg-hiker.jpg');
 }
 
+.bg-img2 {
+  background-image: url('./images/roadmap.jpg')
+}
+
 .home-banner {
   position: absolute;
   top: 30%;
@@ -39,6 +43,16 @@
 
 .f-body {
   font-family: 'Montserrat', sans-serif;
+}
+
+.trap {
+  width: 125px;
+  height: 150px;
+  transform: skew(-20deg);
+}
+
+.rotate-20 {
+  transform: rotate(20deg);
 }
 
 @tailwind base;
