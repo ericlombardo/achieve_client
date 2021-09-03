@@ -9,18 +9,15 @@ const NewGoalForm = ({handleStart, handleQuit}) => {
   const [show, setShow] = useState('start')
 
   return (
-    <div>
+    <div className="divBox flex items-center justify-center w-screen h-screen">
       {show === "start" ? (
-        <>
-        <div>
+        <div id="start-display">
           <Button text="Start Something" handleClick={() => setShow('startGoal')} classes="ransform transition-all hover:scale-125 bg-orange text-white font-bold p-2 rounded-2xl w-48 h-auto text-center shadow-2xl f-body" />
-        </div>
-        <div>
           <Button text="Quit Something" handleClick={() => setShow('quitGoal')}classes="ransform transition-all hover:scale-125 bg-orange text-white font-bold p-2 rounded-2xl w-48 h-auto text-center shadow-2xl f-body" />
         </div>
-        </>) : show === "startGoal" ? (
+      ) : show === "startGoal" ? (
             < StartGoal />
-        ) : show === "quitGoal" ? (
+      ) : show === "quitGoal" ? (
           < QuitGoal />
         ) : null
       }
