@@ -29,7 +29,7 @@ const QuoteContainer = () => {
         
         <Quote 
           quote={quotes[ranIndex]} 
-          classes="bg-black opacity-98 text-white text-center rounded-2xl shadow-2xl f-body p-4"
+          classes="bg-black opacity-98 text-white text-xl text-center rounded-2xl shadow-2xl f-body p-4"
         />
 
       </div> 

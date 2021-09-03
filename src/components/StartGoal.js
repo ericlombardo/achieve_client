@@ -1,4 +1,6 @@
 import { useState } from 'react'
+import Button from './display/Button'
+
 
 const StartGoal = () => {
 
@@ -23,8 +25,8 @@ const StartGoal = () => {
 
   return (
     <div className="relative">
-        <div className="mx-auto p-6 border-2 f-title text-3xl border-black w-3/4 h-auto bg-orange rounded-xl shadow-2xl transform -skew-x-12 w-max-11/12 h-max-11/12 md:grid md:grid-cols-2"> 
-          <div className="text-center">
+        <div className="mx-auto p-6 border-2 f-title text-3xl border-black w-3/4 h-auto bg-orange rounded-xl shadow-2xl transform -skew-x-12 max-w-6xl md:grid md:grid-cols-2"> 
+          <div className="text-center form">
             <h1>SELECT FINISH DATE</h1>
             <input type="date" onChange={handleDateCalc} />
             
@@ -44,7 +46,7 @@ const StartGoal = () => {
             <h1>It's important to know your why:</h1>
             <textarea rows="5" cols="20"></textarea>
           </div>
-          <div className="text-center">
+          <div className="text-center form">
             <h1>Set some milestones to celebrate along the way</h1>
             <input type='text' placeholder="Make list of books" />
             <input type='text' placeholder="Buy or checkout books" />
@@ -53,6 +55,12 @@ const StartGoal = () => {
             <input type='text' placeholder="Read 3rd Book" />
             <input type='text' placeholder="Read 4th Book" />
             <input type='text' placeholder="Read 5th Book" />
+            <input type='text' placeholder="Reflect on Books" />
+
+            <div className="grid grid-cols-2">
+              <Button text="Start Tracking" classes="transform transition-all hover:scale-110 bg-green border-2 hover:text-white border-black text-black font-bold p-2 rounded-2xl w-48 h-auto text-center shadow-2xl f-body"/>
+              <Button text="Cancel Goal" classes="transform transition-all hover:scale-110 bg-green border-2 hover:text-white border-black text-black font-bold p-2 rounded-2xl w-48 h-auto text-center shadow-2xl f-body"/>
+            </div>
           </div>
         </div>
       </div>
