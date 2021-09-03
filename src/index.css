@@ -14,6 +14,11 @@
   left: 20%;
 }
 
+.form > * {
+  padding: 4em 0 4em 0;
+  color: red;
+}
+
 /* colors */
 .bg-orange {
   background-color: #d75c23;
@@ -37,6 +42,7 @@
   background-color: #bff7e1;
 }
 
+/*  font assignments */
 .f-title {
   font-family: 'Bebas Neue', cursive;
 }
@@ -45,15 +51,18 @@
   font-family: 'Montserrat', sans-serif;
 }
 
+/* shape creations */
 .trap {
-  width: 125px;
-  height: 150px;
+  width: 90%;
+  height: 375px;
   transform: skew(-20deg);
 }
 
 .rotate-20 {
   transform: rotate(20deg);
 }
+
+
 
 @tailwind base;
 @tailwind components;

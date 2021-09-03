@@ -4,7 +4,7 @@ import QuitGoal from './QuitGoal'
 
 import { useState } from 'react'
 
-const NewGoalForm = ({handleStart, handleQuit}) => {
+const NewGoalForm = () => {
   
   const [show, setShow] = useState('start')
 
@@ -30,7 +30,7 @@ const NewGoalForm = ({handleStart, handleQuit}) => {
 
       
 {/* 
-      <div className="relative grid-rows-2">
+      <div className="relative">
         <div className="pl-20 absolute rotate-20 trap bg-green rounded-xl shadow-2xl ">
         </div>
         <div className="pl-20absolute trap bg-orange rounded-xl shadow-2xl ">
