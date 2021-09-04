@@ -33,6 +33,26 @@ export const updateGoal = (newGoal) => {
       alert('Updated Milestones')
     })
   }
+  }
+
+  export const CreateGoal = (goal) => {
+    debugger
+    return (dispatch) => {
+      fetch('http://localhost:3000/goals', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({goal: goal})
+      })
+      .then(resp => resp.json())
+      .then(goals => 
+        dispatch({
+          type: 'ADD_GOALS',
+          payload: goals
+        })
+      )
+    }
 }
 
 
