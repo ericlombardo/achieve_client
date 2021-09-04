@@ -52,7 +52,7 @@ export const updateGoal = (newGoal) => {
       .then(resp => resp.json())
       .then(goal => 
         dispatch({
-          type: 'ADD_GOALS',
+          type: 'CREATE_GOAL',
           payload: goal
         })
       )
