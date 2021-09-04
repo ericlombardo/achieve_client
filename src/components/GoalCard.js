@@ -16,7 +16,7 @@ const GoalCard = (props) => {
 
   return (
     <div id="goal-card" className="bg-gray-300 border-2 border-black m-4" key={props.goal.id}>
-      <h3 className="tx-color-red">I will {title} in {durationNumber} {durationUnit} {why}</h3>
+      <h3 className="tx-color-red">I will {title} in {why}</h3>
       <h3>{milestones.filter(ms => ms.complete === true).length} / {milestones.length} completed</h3>
       <h4 >Milestones</h4>
       <div id="milestones" className="goal-card">

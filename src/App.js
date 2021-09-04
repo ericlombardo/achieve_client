@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Route} from 'react-router-dom'
 
 import HomePage from './components/HomePage'
 import NewGoalPage from './components/NewGoalPage'
-import ActivityLogPage from './components/ActivityLogPage'
+import GoalContainer from './components/GoalContainer'
 import NavBar from './components/NavBar'
 
 const App = () => {
@@ -23,9 +23,9 @@ const App = () => {
             </div>
           </Route>
 
-          <Route exact path="/activitylog"> 
+          <Route exact path="/goals"> 
             <NavBar />
-            <ActivityLogPage />
+            <GoalContainer />
           </Route>
       </Router>
     </div>
