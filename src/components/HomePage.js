@@ -1,5 +1,5 @@
 // Displays / route
-import { NavLink } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import QuoteContainer from './QuoteContainer'
 import Button from '../components/display/Button'
 
@@ -12,7 +12,7 @@ const HomePage = () => {
       
       </div>
       <div className="mx-auto">
-        <NavLink to="/goals/new">  {/* create navlink to route button */}
+        <Link to="/goals">  {/* create navlink to route button */}
           <Button 
             text="TRACK YOUR GOALS" 
             classes="transform transition-all hover:scale-110
@@ -20,7 +20,7 @@ const HomePage = () => {
             p-2 rounded-2xl w-48 h-auto
             text-center shadow-2xl f-body"
           />
-        </NavLink>
+        </Link>
       </div>
     </div>
   )
