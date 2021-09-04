@@ -3,7 +3,7 @@ import Button from './display/Button'
 
 const GoalCard = (props) => {
   
-  const {id, title, why, durationNumber, durationUnit, durationEnd, timeSpent, milestones} = props.goal
+  const {id, title, why, milestones} = props.goal
   const [msIds, collectmsIds ] = useState([])
   
   const checkboxLogic = (e) => {

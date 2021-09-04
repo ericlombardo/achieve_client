@@ -37,7 +37,7 @@ export const updateGoal = (newGoal) => {
 
   export const CreateGoal = (goal) => {
     
-    const {durationEnd, title, goalVerb, goalNumber, goalUnit, why, milestones, dayCount } = goal
+    const {goalVerb, goalNumber, goalUnit, why, dayCount } = goal
     
     return (dispatch) => {
       goal.title = `In ${dayCount} days I will have ${goalVerb} ${goalNumber} ${goalUnit} in order to ${why}`
@@ -50,12 +50,11 @@ export const updateGoal = (newGoal) => {
         body: JSON.stringify({goal: goal})
       })
       .then(resp => resp.json())
-      .then(goals => 
-        {debugger}
-        // dispatch({
-        //   type: 'ADD_GOALS',
-        //   payload: goals
-        // })
+      .then(goal => 
+        dispatch({
+          type: 'ADD_GOALS',
+          payload: goal
+        })
       )
     }
 }

@@ -26,33 +26,5 @@ const NewGoalForm = () => {
     </div>
   )
 }  
-      
-
-      
-{/* 
-      <div className="relative">
-        <div className="pl-20 absolute rotate-20 trap bg-green rounded-xl shadow-2xl ">
-        </div>
-        <div className="pl-20absolute trap bg-orange rounded-xl shadow-2xl ">
-          <h1 className="p-2">By:</h1>
-          <input type="date" />
-        </div>
-      </div>
-
-
-      <div className="relative flex">
-        <div className="absolute rotate-20 trap bg-green rounded-xl shadow-2xl ">
-        </div>
-        <div className="absolute trap bg-orange rounded-xl shadow-2xl ">
-          <h1>I will have</h1>
-          <input type="text" placeholder="verb" />
-          <input type="text" placeholder="number" />
-          <input type="text" placeholder="unit" />
-
-        </div>
-      </div> */}
-    // </div>
-//   )
-// }
 
 export default NewGoalForm

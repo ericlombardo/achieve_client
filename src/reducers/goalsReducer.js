@@ -28,6 +28,13 @@ const goalsReducer = (  // this is where you update and return new state
             ...state.goals.slice(index + 1)
           ] 
       }
+    case 'CREATE_GOAL' :
+      return {
+        ...state,
+          goals: [
+            ...state.goals, action.payload
+          ]
+      }
     default : 
       return state
   }
