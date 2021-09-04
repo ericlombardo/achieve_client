@@ -6,20 +6,17 @@ import { CreateGoal } from '../actions/goalActions'
 
 const StartGoal = () => {
 
-  // set goal state and then have that be an object with everything
-  // fill object in with object.key = name
-  // handleChange => goal[e.target.dataset.]
-
-  //setGoal({...goal, milestone: copyMilestone})
   const [show, setShow] = useState(null)  // tells when to show days
-  const [title, setTitle] = useState('') // assign form inputs for controlled form
-  const [dayCount, setDayCount] = useState(null) // allows to calc days for goal
-  const [goalVerb, setGoalVerb] = useState('')
-  const [goalNumber, setGoalNumber] = useState('')
-  const [goalUnit, setGoalUnit] = useState('')
-  const [durationEnd, setDurationEnd] = useState(null)
-  const [why, setWhy] = useState('to better myself.')
-  const [milestone, setMilestone] = useState(new Array(8).fill(''))
+  const [goal, setGoal] = useState({
+    title: '',
+    goalVerb: '',
+    goalNumber: null,
+    goalUnit: '',
+    durationEnd: '',
+    dayCount: null,
+    why: 'improve myself',
+    milestones: new Array(8).fill(''),
+  })
 
   const dispatch = useDispatch()
 
@@ -29,21 +26,24 @@ const StartGoal = () => {
     const difInMilli = Math.abs(goalDate - today)
     const difInDays = Math.ceil(difInMilli / (1000 * 60 * 60 * 24))
 
-    setDayCount(difInDays)
+    setGoal({...goal, durationEnd: e.target.value, dayCount: difInDays})
     setShow('showDays')
   }
 
   const handleMilestones = (e) => {
-    const copyMilestone = [ ...milestone ]
-    copyMilestone[e.target.dataset.key] = e.target.value
+    const copyMilestones = [...goal.milestones]
+    copyMilestones[e.target.dataset.key] = e.target.value
+    setGoal({ ...goal, milestones: copyMilestones })
+  }
 
-    setMilestone(copyMilestone)
+  const handleChange = (e) => {
+    setGoal({...goal, [e.target.dataset.id]: e.target.value })
+    
   }
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    debugger
-    return dispatch(CreateGoal({title, why, goalVerb, goalNumber, goalUnit, milestone}))
+    return dispatch(CreateGoal(goal))
   }
 
   return (
@@ -59,28 +59,17 @@ const StartGoal = () => {
               <h1>I will have</h1> 
             
             : show === 'showDays' ?
-                <h1>In {dayCount} Days, I will have</h1>
+                <h1>In {goal.dayCount} Days, I will have</h1>
             
             : null
             }
             
-            <input type='text' onChange={(e) => {
-              setGoalVerb(e.target.value)
-              setTitle(`I will ${goalVerb} ${goalNumber} ${goalUnit} to ${why}`)
-            }} placeholder="read" />
-            <input type='text' onChange={(e) => {
-              setGoalNumber(e.target.value)
-              setTitle(`I will ${goalVerb} ${goalNumber} ${goalUnit} to ${why}`)
-            }} placeholder="5" />
-            <input type='text' onChange={(e) => {
-              setGoalUnit(e.target.value)
-              setTitle(`I will ${goalVerb} ${goalNumber} ${goalUnit} to ${why}`)
-            }} placeholder="books" />
-            <h1>It's important to know your why:</h1>
-            <textarea onChange={(e) => {
-              setWhy(e.target.value)
-              setTitle(`I will ${goalVerb} ${goalNumber} ${goalUnit} to ${why}`)
-            }} rows="5" cols="20"></textarea>
+            <input data-id="goalVerb" type='text' onChange={(e) => handleChange(e)} placeholder="read" />
+            <input data-id="goalNumber" type='text' onChange={(e) => handleChange(e)} placeholder="5" />
+            <input data-id="goalUnit" type='text' onChange={(e) => handleChange(e)} placeholder="books" />
+            <h1>Know your why:</h1>
+            <h1>I want to achieve this in order to:</h1>
+            <textarea data-id="why" onChange={(e) => handleChange(e)} rows="5" cols="20"></textarea>
           </div>
           <div className="text-center form">
             <h1>Set some milestones to celebrate along the way</h1>

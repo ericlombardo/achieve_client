@@ -36,8 +36,12 @@ export const updateGoal = (newGoal) => {
   }
 
   export const CreateGoal = (goal) => {
-    debugger
+    
+    const {durationEnd, title, goalVerb, goalNumber, goalUnit, why, milestones, dayCount } = goal
+    
     return (dispatch) => {
+      goal.title = `In ${dayCount} days I will have ${goalVerb} ${goalNumber} ${goalUnit} in order to ${why}`
+
       fetch('http://localhost:3000/goals', {
         method: 'POST',
         headers: {
@@ -47,10 +51,11 @@ export const updateGoal = (newGoal) => {
       })
       .then(resp => resp.json())
       .then(goals => 
-        dispatch({
-          type: 'ADD_GOALS',
-          payload: goals
-        })
+        {debugger}
+        // dispatch({
+        //   type: 'ADD_GOALS',
+        //   payload: goals
+        // })
       )
     }
 }
