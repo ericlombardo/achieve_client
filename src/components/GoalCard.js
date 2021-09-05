@@ -10,14 +10,14 @@ const GoalCard = (props) => {
 
 
   return (
-    <>  
-      <h2>{title}</h2>
+    <div className="m-4 text-xl">  
+      <h2 className="text-3xl f-title">{title}</h2>
       
       {/* show complete vs. total milestones */}
       <h3>{milestones.filter(ms => ms.complete === true).length} / {milestones.length} completed</h3>
       
       {/* display each milestone*/}
-      <h4 >Milestones</h4>
+      <h4 className="f-title text-2xl">Milestones:</h4>
       <div id="milestones" className="goal-card">
         <form id={id} onSubmit={(e) => props.handleSubmit(e)}>
         {milestones.sort((a, b) => {return a.id - b.id}).map(milestone => {
@@ -32,12 +32,16 @@ const GoalCard = (props) => {
         <br /><br />
         
         <Button 
-          text="Update Milestones" 
+          text="Update Milestones"
+          classes="transform transition-all hover:scale-110
+            bg-orange text-white text-2xl 
+            p-2 rounded-2xl w-48 h-auto
+            text-center shadow-2xl f-title" 
         />
 
         </form>
       </div>
-    </> 
+    </div> 
   )
 }
 

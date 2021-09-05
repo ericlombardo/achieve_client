@@ -38,10 +38,10 @@ const GoalContainer = () => {
   if (loading) { return 'Loading...' } 
   
   return ( 
-    <div id="goals">
+    <div id="goals" className="md:grid md:grid-cols-2 md:gap-4">
       {goals.map(goal => { // map through all goals and render GoalCard for eac
         return (
-        <div id="goal-card" className="bg-gray-300 border-2 border-black m-4" key={goal.id}>
+        <div id="goal-card" className="max-w-md border-4 bg-green opacity-90 shadow-2xl border-black text-left rounded-2xl my-8 mx-auto" key={goal.id}>
           <GoalCard goal={goal} checkboxLogic={checkboxLogic} handleSubmit={handleSubmit}/> 
         </div>
         )

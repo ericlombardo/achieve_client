@@ -5,7 +5,11 @@
 }
 
 .bg-img2 {
-  background-image: url('./images/roadmap.jpg')
+  background-image: url('./images/roadmap.jpg');
+}
+
+.logo {
+  background-image: url('./images/Flag\ 03.jpg');
 }
 
 .home-banner {
