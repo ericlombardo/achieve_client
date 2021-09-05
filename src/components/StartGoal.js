@@ -53,11 +53,10 @@ const StartGoal = () => {
         <div className="mx-auto p-6 border-2 f-title text-3xl border-black w-3/4 h-auto bg-orange rounded-xl shadow-2xl transform -skew-x-12 max-w-6xl md:grid md:grid-cols-2"> 
           <div className="text-center form">
             
-            
             <h1>SELECT FINISH DATE</h1>      {/* date selection input*/}
             <input type="date" onChange={handleDateCalc} required />
             
-                        {/* show days logic*/}
+                        {/* show days or not logic*/}
             {                   
             show === null ? 
               <h1>I will have</h1> 
@@ -90,14 +89,12 @@ const StartGoal = () => {
             <input data-key={6} onChange={(e) => handleMilestones(e)} type='text'  />
             <input data-key={7} onChange={(e) => handleMilestones(e)} type='text'  />
 
-
             <div className="grid grid-cols-2"> {/* track and close button */}
               
-              <Button text="Start Tracking" classes="transform transition-all hover:scale-110 bg-green border-2 hover:text-white border-black text-black font-bold p-2 rounded-2xl w-48 h-auto text-center shadow-2xl f-body"/>              
-              <button text="Cancel Goal" onClick={() => window.location.reload(true)} className="transform transition-all hover:scale-110 bg-green border-2 hover:text-white border-black text-black font-bold p-2 rounded-2xl w-48 h-auto text-center shadow-2xl f-body">
+              <Button text="Start Tracking" classes="bg-green border-2 border-black f-title text-black hover:text-white p-2 w-48 h-auto text-center shadow-2xl rounded-2xl"/>              
+              <button text="Cancel Goal" onClick={() => window.location.reload(true)} className="transform transition-all hover:scale-110 bg-green border-2 border-black f-title text-black hover:text-white p-2 w-48 h-auto text-center shadow-2xl rounded-2xl">
                 Cancel Goal
               </button>
-
 
             </div>
           </div>

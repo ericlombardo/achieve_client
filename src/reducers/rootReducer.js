@@ -5,7 +5,7 @@ import goalsReducer from './goalsReducer';
 
 // build routes for each reducer
 const rootReducer = combineReducers({
-  goals: goalsReducer
+  goals: goalsReducer  // store is goal.goals => you are nesting to allow for other reducers
 })
 
 export default rootReducer

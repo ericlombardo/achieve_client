@@ -1,6 +1,6 @@
 
 
-export const fetchGoals = () => {
+export const fetchGoals = () => {  // get all goals and add to redux store
   return (dispatch) => {
     dispatch({
       type: 'LOADING_GOALS'
@@ -14,8 +14,7 @@ export const fetchGoals = () => {
   }
 }
 
-export const updateGoal = (updatedGoal) => {
-
+export const updateGoal = (updatedGoal) => { // takes in updatedGoal and updates redux store
   return (dispatch) => {
     dispatch({
       type: 'UPDATE_GOAL',
@@ -23,59 +22,44 @@ export const updateGoal = (updatedGoal) => {
     })
   }}
 
+export const updateGoalServer = (newGoal) => {  // sends newGoal to server as patch
+  return (dispatch) => {
+    fetch(`http://localhost:3000/goals/${newGoal.id}`, { // form id is set to goal
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({goal: newGoal})}
+    )
+  }
+}
+  
+export const CreateGoal = (goal) => {  // assigns conditional title, posts to server, adds to redux
+  const {goalVerb, goalNumber, goalUnit, why, dayCount } = goal
 
-  export const updateGoalServer = (newGoal) => {
-    return (dispatch) => {
-      fetch(`http://localhost:3000/goals/${newGoal.id}`, { // form id is set to goal
-        method: 'PATCH',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({goal: newGoal})}
-      )
+  const setTitle = () => { // set title based on what type of goal
+    if (goal.goalUnit) {
+      goal.title = `In ${dayCount} days I will have ${goalVerb} ${goalNumber} ${goalUnit} in order to ${why}`
+    } else {
+      goal.title = `In ${dayCount} days I will have ${goalVerb} in order to ${why}`
     }
   }
-  
-
-  
-  export const CreateGoal = (goal) => {
-    const {goalVerb, goalNumber, goalUnit, why, dayCount } = goal
+  return (dispatch) => {
+    setTitle() // set title based on starting or quiting
     
-    const setTitle = () => { // set title based on what type of goal
-      if (goal.goalUnit) {
-        goal.title = `In ${dayCount} days I will have ${goalVerb} ${goalNumber} ${goalUnit} in order to ${why}`
-      } else {
-        goal.title = `In ${dayCount} days I will have ${goalVerb} in order to ${why}`
-      }
-    }
-    return (dispatch) => {
-      setTitle() // set title based on starting or quiting
-      
-      fetch('http://localhost:3000/goals', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({goal: goal})
+    fetch('http://localhost:3000/goals', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({goal: goal})
+    })
+    .then(resp => resp.json())
+    .then(goal => 
+      dispatch({              // send new goal to Redux store
+        type: 'CREATE_GOAL',
+        payload: goal
       })
-      .then(resp => resp.json())
-      .then(goal => 
-        dispatch({
-          type: 'CREATE_GOAL',
-          payload: goal
-        })
-        )
-      }
+      )
     }
-    
-    
-    
-    // export const updateMilestone = (milestone) => {
-    //   return (dispatch) => {
-    //     dispatch({
-    //       type: 'UPDATE_MILESTONE',
-    //       payload: milestone
-    
-    //     })
-    //   } 
-    // }
+}

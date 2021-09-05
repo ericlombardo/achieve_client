@@ -1,5 +1,5 @@
 // displays goals/new route
-import NewGoalForm from './NewGoalForm'
+import NewGoalForm from '../NewGoalForm'
 
 const NewGoalPage = () => {
 

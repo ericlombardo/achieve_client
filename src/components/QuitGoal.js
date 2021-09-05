@@ -89,11 +89,12 @@ const StartGoal = () => {
 
             <div className="md:grid md:grid-cols-2"> {/* track and close button */}
               
-              <Button text="Start Tracking" classes="transform transition-all hover:scale-110 bg-green border-2 hover:text-white border-black text-black font-bold p-2 rounded-2xl w-48 h-auto text-center shadow-2xl f-body"/>              
-              <button text="Cancel Goal" onClick={() => window.location.reload(true)} className="transform transition-all hover:scale-110 bg-green border-2 hover:text-white border-black text-black font-bold p-2 rounded-2xl w-48 h-auto text-center shadow-2xl f-body">
+              <Button 
+                text="Start Tracking" 
+                classes="bg-green border-2 border-black f-title text-black hover:text-white p-2 w-48 h-auto text-center shadow-2xl rounded-2xl"/>              
+              <button text="Cancel Goal" onClick={() => window.location.reload(true)} className="transform transition-all hover:scale-110 bg-green border-2 border-black f-title text-black hover:text-white p-2 w-48 h-auto text-center shadow-2xl rounded-2xl">
                 Cancel Goal
               </button>
-
 
             </div>
           </div>

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { fetchGoals, updateGoal, updateGoalServer } from '../actions/goalActions'
-import GoalCard from './GoalCard'
+import GoalCard from './display/GoalCard'
 
 
 const GoalContainer = () => {

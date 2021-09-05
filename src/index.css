@@ -4,14 +4,6 @@
   background-image: url('./images/bg-hiker.jpg');
 }
 
-.bg-img2 {
-  background-image: url('./images/roadmap.jpg');
-}
-
-.logo {
-  background-image: url('./images/Flag\ 03.jpg');
-}
-
 .home-banner {
   position: absolute;
   top: 30%;
@@ -53,19 +45,6 @@
 .f-body {
   font-family: 'Montserrat', sans-serif;
 }
-
-/* shape creations */
-.trap {
-  width: 90%;
-  height: 375px;
-  transform: skew(-20deg);
-}
-
-.rotate-20 {
-  transform: rotate(20deg);
-}
-
-
 
 @tailwind base;
 @tailwind components;

@@ -1,14 +1,10 @@
 import React from 'react';        
 import ReactDOM from 'react-dom';
-import { 
-  createStore,            // create store function
-  applyMiddleware,        // applyMiddleware function allows use of thunk
-  compose } from 'redux'; // lets us combine applyMiddleware and redux chrome extension 
+import { createStore, applyMiddleware, compose } from 'redux'; // lets us use thunk, compose allows us to combine multiple enhancers
 import { Provider } from 'react-redux';  // gives us access to props without passing each time
 import thunk from 'redux-thunk'; // gives access to thunk so we can return functions in action
 import './index.css'
 
-// import files to accessing
 import App from './App'
 import rootReducer from './reducers/rootReducer'
 

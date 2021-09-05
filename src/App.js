@@ -1,11 +1,11 @@
 import { BrowserRouter as Router, Route} from 'react-router-dom'
 
-import HomePage from './components/HomePage'
-import NewGoalPage from './components/NewGoalPage'
-import GoalContainer from './components/GoalContainer'
-import NavBar from './components/NavBar'
+import HomePage from './components/display/HomePage'
+import NewGoalPage from './components/display/NewGoalPage'
+import GoalsPage from './components/display/GoalsPage'
+import NavBar from './components/display/NavBar'
 
-const App = () => {
+const App = () => { // uses Router to direct routes to Home, Goals, New Goal
   return (
     <div className="container">
       <Router> {/* renders router component to handle different routes */}
@@ -22,7 +22,7 @@ const App = () => {
 
             <Route exact path="/goals"> 
               <NavBar />
-              <GoalContainer />
+              <GoalsPage />
             </Route>
           </div>
       </Router>

@@ -9,44 +9,35 @@ const goalsReducer = (  // this is where you update and return new state
         goals: [...state.goals], // and goals
         loading: true // alert we are still loading
       }
+
     case 'ADD_GOALS' :
       return {
         ...state, // return previous state
-        goals: action.payload, // add new goal to previous goals
+        goals: action.payload, // add all new goals
         loading: false // alert we are done loading
       }
 
     case 'UPDATE_GOAL' :
-      const index = state.goals.findIndex(g => {
+      const index = state.goals.findIndex(g => { // finds goal by index
         return g.id === action.payload.id
       })
       return {
         ...state,
           goals: [
             ...state.goals.slice(0, index),
-            action.payload,
+            action.payload,                 // uses index to slice goals and add new inbetween
             ...state.goals.slice(index + 1)
           ] 
       }
-    case 'CREATE_GOAL' :
+
+    case 'CREATE_GOAL' : 
       return {
-        ...state,
-          goals: [
+        ...state,  // returns all other state
+          goals: [  // returns previous goals and adds new goal
             ...state.goals, action.payload
           ]
       }
-    // case 'UPDATE_MILESTONE' :
-    //   const msIndex = state.goals.findIndex(g => {
-    //     return g.id === action.payload.goal_id
-    //   })
-    //   debugger
-    //   return {
-    //     ...state,
-    //       ...state.goals.slice(0, index),
-    //       ...state.goal[Index], 
 
-    //       ...state.goals.slice(index + 1)
-    //   }
     default : 
       return state
   }
