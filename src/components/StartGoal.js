@@ -1,10 +1,12 @@
 import { useState } from 'react'
+import { useHistory } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import Button from './display/Button'
 import { CreateGoal } from '../actions/goalActions'
 
 
 const StartGoal = () => {
+  const history = useHistory()
   const [show, setShow] = useState(null)  // tells when to show days
   const [goal, setGoal] = useState({  // sets all attributes needed for goal
     title: '',
@@ -44,7 +46,9 @@ const StartGoal = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    return dispatch(CreateGoal(goal)) // sends dispatch with goal object
+    dispatch(CreateGoal(goal)) // sends dispatch with goal object
+    alert('Your Goal Has Been Created')
+    history.push('/goals') // useHistory hook to redirect after form submission
   }
 
   return (
@@ -91,7 +95,10 @@ const StartGoal = () => {
 
             <div className="grid grid-cols-2"> {/* track and close button */}
               
-              <Button text="Start Tracking" classes="bg-green border-2 border-black f-title text-black hover:text-white p-2 w-48 h-auto text-center shadow-2xl rounded-2xl"/>              
+                <Button 
+                  text="Start Tracking" 
+                  classes="bg-green border-2 border-black f-title text-black hover:text-white p-2 w-48 h-auto text-center shadow-2xl rounded-2xl"
+                />              
               <button text="Cancel Goal" onClick={() => window.location.reload(true)} className="transform transition-all hover:scale-110 bg-green border-2 border-black f-title text-black hover:text-white p-2 w-48 h-auto text-center shadow-2xl rounded-2xl">
                 Cancel Goal
               </button>
