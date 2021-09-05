@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { fetchGoals, updateGoal } from '../actions/goalActions'
+import { fetchGoals, updateGoal, updateGoalServer } from '../actions/goalActions'
 import GoalCard from './GoalCard'
+
 
 const GoalContainer = () => {
   
@@ -29,8 +30,9 @@ const GoalContainer = () => {
 
   const handleSubmit = (e) => { // goes through each milestone and
     e.preventDefault()                     // switches complete if needed
-    
-    return dispatch(updateGoal()) // sends disptach with action
+    const index = goals.findIndex(goal => goal.id === parseInt(e.target.id))
+
+    return dispatch(updateGoalServer(goals[index])) // sends disptach with action
 }
 
   if (loading) { return 'Loading...' } 

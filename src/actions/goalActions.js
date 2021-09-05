@@ -23,6 +23,27 @@ export const updateGoal = (updatedGoal) => {
     })
   }}
 
+
+  export const updateGoalServer = (newGoal) => {
+    return (dispatch) => {
+        fetch(`http://localhost:3000/goals/${newGoal.id}`, { // form id is set to goal
+          method: 'PATCH',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({goal: newGoal})})
+        .then(resp => resp.json())
+        .then(goal => {
+          debugger
+        //   dispatch({
+        //   type: 'UPDATE_GOAL',
+        //   goal: goal
+        // })
+        // alert('Updated Milestones')
+      })
+    }}
+  
+
   
   export const CreateGoal = (goal) => {
     const {goalVerb, goalNumber, goalUnit, why, dayCount } = goal

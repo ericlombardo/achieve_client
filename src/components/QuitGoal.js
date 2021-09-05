@@ -12,7 +12,7 @@ const StartGoal = () => {
     durationEnd: '',
     dayCount: null,
     why: 'improve myself',
-    milestones: new Array(8).fill(''),
+    newMilestones: new Array(8).fill(''),
   })
 
   const dispatch = useDispatch() // sets up dispatch with hook
@@ -29,9 +29,9 @@ const StartGoal = () => {
   }
 
   const handleMilestones = (e) => {
-    const copyMilestones = [...goal.milestones] // makes a copy of milestones
+    const copyMilestones = [...goal.newMilestones] // makes a copy of milestones
     copyMilestones[e.target.dataset.key] = e.target.value // changes specific milestones based on input
-    setGoal({ ...goal, milestones: copyMilestones })  // updates goal state for milestones
+    setGoal({ ...goal, newMilestones: copyMilestones })  // updates goal state for milestones
   }
 
   const handleChange = (e) => {

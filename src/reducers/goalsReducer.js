@@ -20,7 +20,6 @@ const goalsReducer = (  // this is where you update and return new state
       const index = state.goals.findIndex(g => {
         return g.id === action.payload.id
       })
-      // debugger
       return {
         ...state,
           goals: [

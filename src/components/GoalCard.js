@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import Button from './display/Button'
-import { updateGoal } from '../actions/goalActions'
 
 const GoalCard = (props) => {
   
@@ -20,7 +19,7 @@ const GoalCard = (props) => {
       {/* display each milestone*/}
       <h4 >Milestones</h4>
       <div id="milestones" className="goal-card">
-        <form id={id} onSubmit={(e) => props.handleSubmit()}>
+        <form id={id} onSubmit={(e) => props.handleSubmit(e)}>
         {milestones.sort((a, b) => {return a.id - b.id}).map(milestone => {
           return (
             <div id="milestone" key={milestone.id}>
