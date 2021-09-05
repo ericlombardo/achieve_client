@@ -5,7 +5,6 @@ import Button from './display/Button'
 const GoalCard = (props) => {
   
   const {id, title, milestones} = props.goal
-  const [msIds, collectmsIds ] = useState([])
   const dispatch = useDispatch()
 
 
