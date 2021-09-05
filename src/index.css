@@ -1,7 +1,6 @@
 /* ./src/index.css */
-
 .bg-img {
-  background-image: url('./images/bg-hiker.jpg');
+  background-image: url('./images/bg-hiker.jpg');          /* optional, center the image */
 }
 
 .home-banner {

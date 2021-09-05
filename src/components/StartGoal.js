@@ -54,7 +54,7 @@ const StartGoal = () => {
   return (
     <div className="relative">
       <form onSubmit={handleSubmit}>  
-        <div className="mx-auto p-6 border-2 f-title text-3xl border-black w-3/4 h-auto bg-orange rounded-xl shadow-2xl transform -skew-x-12 max-w-6xl md:grid md:grid-cols-2"> 
+        <div className=" border-black bg-orange border-2 f-title text-xl md:text-3xl  mx-auto p-6 w-3/4 h-auto max-w-6xl rounded-xl shadow-2xl md:transform md:-skew-x-12 md:grid md:grid-cols-2"> 
           <div className="text-center form">
             
             <h1>SELECT FINISH DATE</h1>      {/* date selection input*/}
@@ -93,7 +93,7 @@ const StartGoal = () => {
             <input data-key={6} onChange={(e) => handleMilestones(e)} type='text'  />
             <input data-key={7} onChange={(e) => handleMilestones(e)} type='text'  />
 
-            <div className="grid grid-cols-2"> {/* track and close button */}
+            <div className="lg:grid lg:grid-cols-2"> {/* track and close button */}
               
                 <Button 
                   text="Start Tracking" 
