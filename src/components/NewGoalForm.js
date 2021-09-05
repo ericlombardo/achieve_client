@@ -16,7 +16,7 @@ const NewGoalForm = () => {
           <Button text="Quit Something" handleClick={() => setShow('quitGoal')}classes="transform transition-all hover:scale-110 bg-orange text-white font-bold p-2 rounded-2xl w-48 h-auto text-center shadow-2xl f-body" />
         </div>
       ) : show === "startGoal" ? (
-            < StartGoal />
+            < StartGoal startOrQuit={show}/>
       ) : show === "quitGoal" ? (
           < QuitGoal />
         ) : null

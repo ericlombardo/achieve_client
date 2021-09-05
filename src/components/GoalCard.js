@@ -1,35 +1,31 @@
 import React, { useState } from 'react'
+import { useDispatch } from 'react-redux'
 import Button from './display/Button'
+import { updateGoal } from '../actions/goalActions'
 
 const GoalCard = (props) => {
   
-  const {id, title, why, milestones} = props.goal
+  const {id, title, milestones} = props.goal
   const [msIds, collectmsIds ] = useState([])
-  
-  const checkboxLogic = (e) => {
-    if (msIds.includes(parseInt(e.target.id))) {
-      collectmsIds(msIds.filter(id => id !== e.target.id))
-    } else {
-      collectmsIds([...msIds, e.target.id])
-    }
-  }
+  const dispatch = useDispatch()
+
 
   return (
-    <div id="goal-card" className="bg-gray-300 border-2 border-black m-4" key={props.goal.id}>
-      <h3 className="tx-color-red">I will {title} in {why}</h3>
+    <>  
+      <h2>{title}</h2>
+      
+      {/* show complete vs. total milestones */}
       <h3>{milestones.filter(ms => ms.complete === true).length} / {milestones.length} completed</h3>
+      
+      {/* display each milestone*/}
       <h4 >Milestones</h4>
       <div id="milestones" className="goal-card">
-        <form id={id} onSubmit={(e) => props.handleSubmit(e, msIds, props.goal)}>
+        <form id={id} onSubmit={(e) => props.handleSubmit()}>
         {milestones.sort((a, b) => {return a.id - b.id}).map(milestone => {
           return (
             <div id="milestone" key={milestone.id}>
-              <input 
-              type="checkbox" 
-              id={milestone.id}  
-              value={milestone.complete}
-              defaultChecked={milestone.complete === true ? true : false}
-              onChange={(e) => checkboxLogic(e)}/>
+              <input type="checkbox" id={milestone.id} value={milestone.goal_id}  defaultChecked={milestone.complete === true ? true : false}
+                onChange={(e) => props.checkboxLogic(e)}/>
               <label htmlFor={milestone.id}>{milestone.content}</label><br></br>
             </div>
           )
@@ -38,12 +34,11 @@ const GoalCard = (props) => {
         
         <Button 
           text="Update Milestones" 
-          color="purple-600" 
-          hover="purple-400"
-          width="48" />
+        />
+
         </form>
       </div>
-    </div> 
+    </> 
   )
 }
 

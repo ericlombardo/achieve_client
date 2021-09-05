@@ -14,34 +14,29 @@ export const fetchGoals = () => {
   }
 }
 
+export const updateGoal = (updatedGoal) => {
 
-export const updateGoal = (newGoal) => {
- 
   return (dispatch) => {
-      fetch(`http://localhost:3000/goals/${newGoal.id}`, { // form id is set to goal
-        method: 'PATCH',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({goal: newGoal})})
-      .then(resp => resp.json())
-      .then(goal => {
-        dispatch({
-        type: 'UPDATE_GOAL',
-        goal: goal
-      })
-      alert('Updated Milestones')
+    dispatch({
+      type: 'UPDATE_GOAL',
+      payload: updatedGoal
     })
-  }
-  }
+  }}
 
+  
   export const CreateGoal = (goal) => {
-    
     const {goalVerb, goalNumber, goalUnit, why, dayCount } = goal
     
+    const setTitle = () => { // set title based on what type of goal
+      if (goal.goalUnit) {
+        goal.title = `In ${dayCount} days I will have ${goalVerb} ${goalNumber} ${goalUnit} in order to ${why}`
+      } else {
+        goal.title = `In ${dayCount} days I will have ${goalVerb} in order to ${why}`
+      }
+    }
     return (dispatch) => {
-      goal.title = `In ${dayCount} days I will have ${goalVerb} ${goalNumber} ${goalUnit} in order to ${why}`
-
+      setTitle() // set title based on starting or quiting
+      
       fetch('http://localhost:3000/goals', {
         method: 'POST',
         headers: {
@@ -55,8 +50,18 @@ export const updateGoal = (newGoal) => {
           type: 'CREATE_GOAL',
           payload: goal
         })
-      )
+        )
+      }
     }
-}
-
-
+    
+    
+    
+    // export const updateMilestone = (milestone) => {
+    //   return (dispatch) => {
+    //     dispatch({
+    //       type: 'UPDATE_MILESTONE',
+    //       payload: milestone
+    
+    //     })
+    //   } 
+    // }

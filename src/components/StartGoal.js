@@ -5,9 +5,8 @@ import { CreateGoal } from '../actions/goalActions'
 
 
 const StartGoal = () => {
-
   const [show, setShow] = useState(null)  // tells when to show days
-  const [goal, setGoal] = useState({
+  const [goal, setGoal] = useState({  // sets all attributes needed for goal
     title: '',
     goalVerb: '',
     goalNumber: null,
@@ -18,7 +17,7 @@ const StartGoal = () => {
     milestones: new Array(8).fill(''),
   })
 
-  const dispatch = useDispatch()
+  const dispatch = useDispatch() // sets up dispatch with hook
 
   const handleDateCalc = (e) => {  // calculate difference in days to display
     const goalDate = new Date(e.target.value)
@@ -26,24 +25,26 @@ const StartGoal = () => {
     const difInMilli = Math.abs(goalDate - today)
     const difInDays = Math.ceil(difInMilli / (1000 * 60 * 60 * 24))
 
+    // set durationEnd and dayCount based on difInDays
     setGoal({...goal, durationEnd: e.target.value, dayCount: difInDays})
-    setShow('showDays')
+    setShow('showDays')   // sets flag to show calculated days
   }
 
   const handleMilestones = (e) => {
-    const copyMilestones = [...goal.milestones]
-    copyMilestones[e.target.dataset.key] = e.target.value
-    setGoal({ ...goal, milestones: copyMilestones })
+    const copyMilestones = [...goal.milestones] // makes a copy of milestones
+    copyMilestones[e.target.dataset.key] = e.target.value // changes specific milestones based on input
+    setGoal({ ...goal, milestones: copyMilestones })  // updates goal state for milestones
   }
 
   const handleChange = (e) => {
-    setGoal({...goal, [e.target.dataset.id]: e.target.value })
+    // updates goal state for id given with value
+    setGoal({...goal, [e.target.dataset.id]: e.target.value }) 
     
   }
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    return dispatch(CreateGoal(goal))
+    return dispatch(CreateGoal(goal)) // sends dispatch with goal object
   }
 
   return (
@@ -51,10 +52,13 @@ const StartGoal = () => {
       <form onSubmit={handleSubmit}>  
         <div className="mx-auto p-6 border-2 f-title text-3xl border-black w-3/4 h-auto bg-orange rounded-xl shadow-2xl transform -skew-x-12 max-w-6xl md:grid md:grid-cols-2"> 
           <div className="text-center form">
-            <h1>SELECT FINISH DATE</h1>
-            <input type="date" onChange={handleDateCalc} />
             
-            {
+            
+            <h1>SELECT FINISH DATE</h1>      {/* date selection input*/}
+            <input type="date" onChange={handleDateCalc} required />
+            
+                        {/* show days logic*/}
+            {                   
             show === null ? 
               <h1>I will have</h1> 
             
@@ -64,27 +68,37 @@ const StartGoal = () => {
             : null
             }
             
-            <input data-id="goalVerb" type='text' onChange={(e) => handleChange(e)} placeholder="read" />
-            <input data-id="goalNumber" type='text' onChange={(e) => handleChange(e)} placeholder="5" />
-            <input data-id="goalUnit" type='text' onChange={(e) => handleChange(e)} placeholder="books" />
-            <h1>Know your why:</h1>
+            {/* goal declaration inputs*/}
+            <input data-id="goalVerb" type='text' onChange={(e) => handleChange(e)} placeholder="read  (verb)  " required/>
+            <input data-id="goalNumber" type='text' onChange={(e) => handleChange(e)} placeholder="5  (number) " required/>
+            <input data-id="goalUnit" type='text' onChange={(e) => handleChange(e)} placeholder="books  (unit) " required/>
+           
+            <h1>Know your why:</h1>      {/* Why input*/}
             <h1>I want to achieve this in order to:</h1>
-            <textarea data-id="why" onChange={(e) => handleChange(e)} rows="5" cols="20"></textarea>
+            <textarea data-id="why" onChange={(e) => handleChange(e)} rows="5" cols="20" placeholder="continue learning new concepts"required></textarea>
           </div>
-          <div className="text-center form">
+
+
+          <div className="text-center form">           {/* milestones inputes*/}
             <h1>Set some milestones to celebrate along the way</h1>
             <input data-key={0} onChange={(e) => handleMilestones(e)} type='text' placeholder="Make list of books" />
-            <input data-key={1} onChange={(e) => handleMilestones(e)} type='text' placeholder="Buy or checkout books" />
+            <input data-key={1} onChange={(e) => handleMilestones(e)} type='text' placeholder="Find books" />
             <input data-key={2} onChange={(e) => handleMilestones(e)} type='text' placeholder="Read 1st Book" />
-            <input data-key={3} onChange={(e) => handleMilestones(e)} type='text' placeholder="Read 2nd Book" />
-            <input data-key={4} onChange={(e) => handleMilestones(e)} type='text' placeholder="Read 3rd Book" />
-            <input data-key={5} onChange={(e) => handleMilestones(e)} type='text' placeholder="Read 4th Book" />
-            <input data-key={6} onChange={(e) => handleMilestones(e)} type='text' placeholder="Read 5th Book" />
-            <input data-key={7} onChange={(e) => handleMilestones(e)} type='text' placeholder="Reflect on Books" />
+            <input data-key={3} onChange={(e) => handleMilestones(e)} type='text'  />
+            <input data-key={4} onChange={(e) => handleMilestones(e)} type='text'  />
+            <input data-key={5} onChange={(e) => handleMilestones(e)} type='text'  />
+            <input data-key={6} onChange={(e) => handleMilestones(e)} type='text'  />
+            <input data-key={7} onChange={(e) => handleMilestones(e)} type='text'  />
 
-            <div className="grid grid-cols-2">
-              <Button text="Start Tracking" classes="transform transition-all hover:scale-110 bg-green border-2 hover:text-white border-black text-black font-bold p-2 rounded-2xl w-48 h-auto text-center shadow-2xl f-body"/>
-              <Button text="Cancel Goal" classes="transform transition-all hover:scale-110 bg-green border-2 hover:text-white border-black text-black font-bold p-2 rounded-2xl w-48 h-auto text-center shadow-2xl f-body"/>
+
+            <div className="grid grid-cols-2"> {/* track and close button */}
+              
+              <Button text="Start Tracking" classes="transform transition-all hover:scale-110 bg-green border-2 hover:text-white border-black text-black font-bold p-2 rounded-2xl w-48 h-auto text-center shadow-2xl f-body"/>              
+              <button text="Cancel Goal" onClick={() => window.location.reload(true)} className="transform transition-all hover:scale-110 bg-green border-2 hover:text-white border-black text-black font-bold p-2 rounded-2xl w-48 h-auto text-center shadow-2xl f-body">
+                Cancel Goal
+              </button>
+
+
             </div>
           </div>
         </div>
