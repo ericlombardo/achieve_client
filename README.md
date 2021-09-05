@@ -7,7 +7,7 @@ This application was built to help people who want to achieve a goal. It will wa
 To view the site, both the backend and frontend will need set up
   
 1) Set up backend:
-  * Clone the [achieveBackend repo](https://github.com/ericlombardo/achieveBackend) using the link in the top right corner
+  * Clone the [achieve_backend repo](https://github.com/ericlombardo/achieve_backend) using the link in the top right corner
   * Run `git clone <paste_clone_link>` in desired directory
   * Navigate inside the directory and run:
     * `bundle install` 
@@ -20,6 +20,7 @@ To view the site, both the backend and frontend will need set up
 2) Set up frontend:
   * Clone the [achieve_client repo](https://github.com/ericlombardo/achieve_client) using the link in the top right corner
   * Run `git clone <paste_clone_link>` in desired directory
+  * Navigate into the cloned directory
   * Run `npm install` to download all dependencies for the application
   * Run `npm start` to launch the page and start tracking your goals
     * NOTE: When running `npm start` it may alert you that you are already using localhost3000. That is what your backend Rails API is using. You should be prompted to use a different port. Press Y to continue using localhost3001.
