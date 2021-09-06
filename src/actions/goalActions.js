@@ -35,13 +35,13 @@ export const updateGoalServer = (newGoal) => {  // sends newGoal to server as pa
 }
   
 export const CreateGoal = (goal) => {  // assigns conditional title, posts to server, adds to redux
-  const {goalVerb, goalNumber, goalUnit, why, dayCount } = goal
+  const {goalVerb, goalNumber, goalUnit, why } = goal
 
   const setTitle = () => { // set title based on what type of goal
     if (goal.goalUnit) {
-      goal.title = `In ${dayCount} days I will have ${goalVerb} ${goalNumber} ${goalUnit} in order to ${why}`
+      goal.title = `I will have ${goalVerb} ${goalNumber} ${goalUnit} in order to ${why}`
     } else {
-      goal.title = `In ${dayCount} days I will have ${goalVerb} in order to ${why}`
+      goal.title = `I will have ${goalVerb} in order to ${why}`
     }
   }
   return (dispatch) => {
