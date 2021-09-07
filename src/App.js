@@ -4,6 +4,7 @@ import HomePage from './components/display/HomePage'
 import NewGoalPage from './components/display/NewGoalPage'
 import GoalsPage from './components/display/GoalsPage'
 import NavBar from './components/display/NavBar'
+import { Footer } from './components/display/Footer'
 
 const App = () => { // uses Router to direct routes to Home, Goals, New Goal
   return (
@@ -14,6 +15,7 @@ const App = () => { // uses Router to direct routes to Home, Goals, New Goal
             {/* set background each time to handle resizing of forms */}
             <div id="home" className="bg-img bg-cover bg-center bg-no-repeat w-screen min-h-screen">
               <HomePage />
+              <Footer />
             </div>
           </Route>
 
@@ -21,6 +23,7 @@ const App = () => { // uses Router to direct routes to Home, Goals, New Goal
             <div id="home" className="bg-img bg-center bg-repeat-y bg-cover w-screen h-auto">
                 <NavBar />
                 <NewGoalPage />
+                <Footer />
             </div>
           </Route>
 
@@ -28,6 +31,7 @@ const App = () => { // uses Router to direct routes to Home, Goals, New Goal
             <div id="home" className="bg-img bg-center bg-repeat-y bg-cover w-screen h-auto">
               <NavBar />
               <GoalsPage />
+              <Footer />
             </div>
           </Route>
       </Router>
