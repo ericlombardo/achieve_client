@@ -39,6 +39,7 @@ const GoalCard = (props) => {
           <Button 
             text="Update Milestones"
             classes="bg-orange text-white text-2xl p-2 w-48 h-auto rounded-2xl shadow-2xl" 
+            handleClick={() => alert('Your Milestones Have Been Updated!')}
           />
 
         </form>
