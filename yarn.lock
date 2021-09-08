@@ -8188,7 +8188,7 @@
   "resolved" "https://registry.npmjs.org/original/-/original-1.0.2.tgz"
   "version" "1.0.2"
   dependencies:
-    "url-parse" "^1.4.3"
+    "url-parse" "^1.5.2"
 
 "os-browserify@^0.3.0":
   "integrity" "sha1-hUNzx/XCMVkU/Jv8a9gjj92h7Cc="
@@ -10639,7 +10639,7 @@
     "faye-websocket" "^0.11.3"
     "inherits" "^2.0.4"
     "json3" "^3.3.3"
-    "url-parse" "^1.4.7"
+    "url-parse" "^1.5.2"
 
 "sockjs@^0.3.21":
   "integrity" "sha512-DhbPFGpxjc6Z3I+uX07Id5ZO2XwYsWOrYjaSeieES78cq+JaJvVe5q/m1uvjIQhXinhIeCFRH6JgXe+mvVMyXw=="
@@ -11658,10 +11658,10 @@
     "mime-types" "^2.1.27"
     "schema-utils" "^3.0.0"
 
-"url-parse@^1.4.3", "url-parse@^1.4.7":
+"url-parse@^1.5.2", "url-parse@^1.5.2":
   "integrity" "sha512-HOfCOUJt7iSYzEx/UqgtwKRMC6EU91NFhsCHMv9oM03VJcVo2Qrp8T8kI9D7amFf1cu+/3CEhgb3rF9zL7k85Q=="
   "resolved" "https://registry.npmjs.org/url-parse/-/url-parse-1.5.1.tgz"
-  "version" "1.5.1"
+  "version" "1.5.2"
   dependencies:
     "querystringify" "^2.1.1"
     "requires-port" "^1.0.0"
