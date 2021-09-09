@@ -33,16 +33,25 @@ const GoalContainer = () => {
     const index = goals.findIndex(goal => goal.id === parseInt(e.target.id))
 
     return dispatch(updateGoalServer(goals[index])) // sends disptach with action
-}
+  }
+
+  const calcDate = goal => {  // calculate difference in days to display
+    const goalDate = new Date(goal.durationEnd)
+    const today = new Date()
+    const difInMilli = Math.abs(goalDate - today)
+    return goalDate > today ? Math.ceil(difInMilli / (1000 * 60 * 60 * 24)) : 0
+  }
+  
+  const showGoals = goals.filter(goal => calcDate(goal) > 0)
 
   if (loading) { return 'Loading...' } 
   
   return ( 
     <div id="goals" className="md:grid md:grid-cols-2 md:gap-4">
-      {goals.sort((a, b) => a.dayCount - b.dayCount).map(goal => { // map through all goals and render GoalCard for eac
+      {showGoals.sort((a, b) => a.dayCount - b.dayCount).map(goal => { // map through all goals and render GoalCard for eac
         return (
         <div id="goal-card" className="max-w-lg border-2 bg-green opacity-90 shadow-2xl border-black text-left rounded-2xl my-8 mx-auto" key={goal.id}>
-          <GoalCard goal={goal} checkboxLogic={checkboxLogic} handleSubmit={handleSubmit}/> 
+          <GoalCard goal={goal} checkboxLogic={checkboxLogic} handleSubmit={handleSubmit} getDate={calcDate(goal)}/> 
         </div>
         )
       })}

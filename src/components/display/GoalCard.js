@@ -2,18 +2,11 @@ import Button from './Button'
 
 const GoalCard = (props) => {
   
-  const {id, title, milestones, durationEnd} = props.goal
-
-  const getDate = () => {  // calculate difference in days to display
-    const goalDate = new Date(durationEnd)
-    const today = new Date()
-    const difInMilli = Math.abs(goalDate - today)
-    return goalDate > today ? Math.ceil(difInMilli / (1000 * 60 * 60 * 24)) : 0
-  }
+  const {id, title, milestones} = props.goal
   
   return (
     <div className="m-4 text-xl text-center">  
-      <h2 className="text-3xl f-title">In {getDate()} Days</h2>
+      <h2 className="text-3xl f-title">In {props.getDate} Days</h2>
       <h2 className="text-3xl f-title">{title}</h2>
       
       {/* show complete vs. total milestones */}
