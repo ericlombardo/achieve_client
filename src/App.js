@@ -28,7 +28,7 @@ const App = () => { // uses Router to direct routes to Home, Goals, New Goal
           </Route>
 
           <Route exact path="/goals"> 
-            <div id="home" className="bg-img bg-center bg-repeat-y bg-cover w-screen h-screen min-h-auto">
+            <div id="home" className="bg-img bg-center bg-repeat-y bg-cover w-screen min-h-screen">
               <NavBar />
               <GoalsPage />
               <Footer />

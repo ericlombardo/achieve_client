@@ -42,7 +42,7 @@ const GoalContainer = () => {
     return goalDate > today ? Math.ceil(difInMilli / (1000 * 60 * 60 * 24)) : 0
   }
   
-  const showGoals = goals.filter(goal => calcDate(goal) > 0)
+  const showGoals = goals.filter(goal => calcDate(goal) > 0)  // only shows active goals
 
   if (loading) { return 'Loading...' } 
   
