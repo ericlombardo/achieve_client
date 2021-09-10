@@ -38,6 +38,18 @@ const goalsReducer = (  // this is where you update and return new state
           ]
       }
 
+    case 'REMOVE_GOAL' : // gives back goals without deleted goal
+      const removedIndex = state.goals.findIndex(g => { // finds goal by index
+        return g.id === action.payload
+      })
+      return {
+        ...state,
+          goals: [
+            ...state.goals.slice(0, removedIndex),
+            ...state.goals.slice(removedIndex + 1)
+          ]
+      }
+
     default : 
       return state
   }

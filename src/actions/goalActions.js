@@ -63,3 +63,17 @@ export const CreateGoal = (goal) => {  // assigns conditional title, posts to se
       )
     }
 }
+
+export const removeGoal = id => {
+  fetch(`http://localhost:3000/goals/${id}`, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+  })
+  
+  return {
+    type: 'REMOVE_GOAL',
+    payload: id
+  }
+}

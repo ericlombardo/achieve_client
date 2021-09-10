@@ -3,6 +3,8 @@ import { useSelector, useDispatch } from 'react-redux'
 import { fetchGoals, updateGoal, updateGoalServer } from '../actions/goalActions'
 import GoalCard from './display/GoalCard'
 
+import { removeGoal } from '../actions/goalActions'
+
 
 const GoalContainer = () => {
   
@@ -41,6 +43,10 @@ const GoalContainer = () => {
     const difInMilli = Math.abs(goalDate - today)
     return goalDate > today ? Math.ceil(difInMilli / (1000 * 60 * 60 * 24)) : 0
   }
+
+  const deleteGoal = id => {
+    dispatch(removeGoal(id)) // send dispatch with action deleteGoal passing in id
+  }
   
   const showGoals = goals.filter(goal => calcDate(goal) > 0)  // only shows active goals
 
@@ -51,7 +57,7 @@ const GoalContainer = () => {
       {showGoals.sort((a, b) => a.dayCount - b.dayCount).map(goal => { // map through all goals and render GoalCard for eac
         return (
         <div id="goal-card" className="max-w-lg border-2 bg-green opacity-90 shadow-2xl border-black text-left rounded-2xl my-8 mx-auto" key={goal.id}>
-          <GoalCard goal={goal} checkboxLogic={checkboxLogic} handleSubmit={handleSubmit} getDate={calcDate(goal)}/> 
+          <GoalCard goal={goal} checkboxLogic={checkboxLogic} handleSubmit={handleSubmit} getDate={calcDate(goal)} deleteGoal={deleteGoal}/> 
         </div>
         )
       })}
