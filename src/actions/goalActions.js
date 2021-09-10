@@ -23,15 +23,13 @@ export const updateGoal = (updatedGoal) => { // takes in updatedGoal and updates
   }}
 
 export const updateGoalServer = (newGoal) => {  // sends newGoal to server as patch
-  return (dispatch) => {
-    fetch(`http://localhost:3000/goals/${newGoal.id}`, { // form id is set to goal
-      method: 'PATCH',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({goal: newGoal})}
-    )
-  }
+  fetch(`http://localhost:3000/goals/${newGoal.id}`, { // form id is set to goal
+    method: 'PATCH',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({goal: newGoal})}
+  )
 }
   
 export const CreateGoal = (goal) => {  // assigns conditional title, posts to server, adds to redux
@@ -64,7 +62,7 @@ export const CreateGoal = (goal) => {  // assigns conditional title, posts to se
     }
 }
 
-export const removeGoal = id => {
+export const removeGoal = id => { // deletes goal from server and then updates store
   fetch(`http://localhost:3000/goals/${id}`, {
     method: 'DELETE',
     headers: {
