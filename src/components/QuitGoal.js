@@ -91,10 +91,14 @@ const StartGoal = () => {
               
               <Button 
                 text="Start Tracking" 
-                classes="bg-green border-2 border-black f-title text-black hover:text-white p-2 w-48 h-auto text-center shadow-2xl rounded-2xl"/>              
-              <button text="Cancel Goal" onClick={() => window.location.reload(true)} className="transform transition-all hover:scale-110 bg-green border-2 border-black f-title text-black hover:text-white p-2 w-48 h-auto text-center shadow-2xl rounded-2xl">
-                Cancel Goal
-              </button>
+                classes="bg-green border-2 border-black f-title text-black hover:text-white p-2 w-48 h-auto text-center shadow-2xl rounded-2xl"
+              />              
+              <Button 
+                text="Cancel Goal" 
+                classes="bg-green border-2 border-black f-title text-black hover:text-white p-2 w-48 h-auto text-center shadow-2xl rounded-2xl"
+                handleClick={() => window.location.reload(true)}
+              />              
+              
 
             </div>
           </div>

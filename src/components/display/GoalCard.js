@@ -28,17 +28,19 @@ const GoalCard = (props) => {
             )
           })}
           <br />
-          
-          <Button 
-            text="Update Milestones"
-            classes="bg-orange text-white text-2xl p-2 w-48 h-auto rounded-2xl shadow-2xl" 
-            handleClick={() => alert('Your Milestones Have Been Updated!')}
-          />
-          <Button 
-            text="Delete Goal"
-            classes="bg-orange text-white text-2xl p-2 w-48 h-auto rounded-2xl shadow-2xl" 
-            handleClick={() => props.deleteGoal(props.goal.id)}
-          />
+          <div className="lg:grid lg:grid-cols-2 gap-2">
+              <Button 
+                text="Update Milestones"
+                classes="bg-orange text-white text-2xl p-2 w-48 h-auto rounded-2xl shadow-2xl" 
+                handleClick={() => alert('Your Milestones Have Been Updated!')}
+              />
+
+            <Button 
+              text="Delete Goal"
+              classes="bg-orange text-white text-2xl p-2 w-48 h-auto rounded-2xl shadow-2xl" 
+              handleClick={() => props.deleteGoal(props.goal.id)}
+            />
+          </div>
 
         </form>
       </div>
