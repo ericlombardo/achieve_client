@@ -1,10 +1,12 @@
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
+import {useHistory } from 'react-router-dom'
 import Button from './display/Button'
 import { CreateGoal } from '../actions/goalActions'
 
 
 const StartGoal = () => {
+  const history = useHistory()
   const [show, setShow] = useState(null)  // tells when to show days
   const [goal, setGoal] = useState({  // sets all attributes needed for goal
     title: '',
@@ -42,7 +44,9 @@ const StartGoal = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    return dispatch(CreateGoal(goal)) // sends dispatch with goal object
+    dispatch(CreateGoal(goal)) // sends dispatch with goal object
+    alert('Your Goal Has Been Created')
+    history.push('/goals') // useHistory hook to redirect after form submission
   }
 
   return (
