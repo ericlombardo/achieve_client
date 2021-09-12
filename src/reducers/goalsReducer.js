@@ -1,5 +1,5 @@
 const goalsReducer = (  // this is where you update and return new state
-  state = {goals: [], loading: true}, // set state defaults
+  state = {goals: [], loading: false}, // set state defaults
   action
   ) => { 
   switch(action.type) { 
