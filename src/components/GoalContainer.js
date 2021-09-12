@@ -14,7 +14,7 @@ const GoalContainer = () => {
   
   useEffect(() => {  // runs side effect
     dispatch(fetchGoals()) // calls dispatch with fetchGoals action
-  }, [dispatch]) // renders whenever dispatch changes
+  }, []) // renders upon mounting
   
   
   const checkboxLogic = (e) => {
